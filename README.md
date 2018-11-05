@@ -1,5 +1,6 @@
 # MINITESTAPP
 Learning how to run tests on a RoR environment with MiniTest
+
 #Instructions:
 
 Download or clone repo,
