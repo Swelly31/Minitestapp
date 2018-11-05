@@ -1,0 +1,887 @@
+  [1m[35m (712.8ms)[0m  [1m[35mCREATE DATABASE "Minitestapp_development" ENCODING = 'unicode'[0m
+  ↳ bin/rails:9
+  [1m[35m (269.0ms)[0m  [1m[35mCREATE DATABASE "Minitestapp_test" ENCODING = 'unicode'[0m
+  ↳ bin/rails:9
+  [1m[35m (42.6ms)[0m  [1m[35mCREATE TABLE "schema_migrations" ("version" character varying NOT NULL PRIMARY KEY)[0m
+  ↳ bin/rails:9
+  [1m[35m (29.4ms)[0m  [1m[35mCREATE TABLE "ar_internal_metadata" ("key" character varying NOT NULL PRIMARY KEY, "value" character varying, "created_at" timestamp NOT NULL, "updated_at" timestamp NOT NULL)[0m
+  ↳ bin/rails:9
+  [1m[35m (0.3ms)[0m  [1m[34mSELECT pg_try_advisory_lock(4654010168795477490)[0m
+  ↳ bin/rails:9
+  [1m[35m (0.5ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  ↳ bin/rails:9
+Migrating to CreateUsers (20181105091918)
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  ↳ bin/rails:9
+  [1m[35m (27.4ms)[0m  [1m[35mCREATE TABLE "users" ("id" bigserial primary key, "first_name" character varying, "last_name" character varying, "email" character varying, "password" character varying, "created_at" timestamp NOT NULL, "updated_at" timestamp NOT NULL)[0m
+  ↳ db/migrate/20181105091918_create_users.rb:3
+  [1m[36mActiveRecord::SchemaMigration Create (3.1ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES ($1) RETURNING "version"[0m  [["version", "20181105091918"]]
+  ↳ bin/rails:9
+  [1m[35m (0.9ms)[0m  [1m[35mCOMMIT[0m
+  ↳ bin/rails:9
+  [1m[36mActiveRecord::InternalMetadata Load (0.6ms)[0m  [1m[34mSELECT  "ar_internal_metadata".* FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = $1 LIMIT $2[0m  [["key", "environment"], ["LIMIT", 1]]
+  ↳ bin/rails:9
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  ↳ bin/rails:9
+  [1m[36mActiveRecord::InternalMetadata Create (12.2ms)[0m  [1m[32mINSERT INTO "ar_internal_metadata" ("key", "value", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "key"[0m  [["key", "environment"], ["value", "development"], ["created_at", "2018-11-05 17:13:09.410221"], ["updated_at", "2018-11-05 17:13:09.410221"]]
+  ↳ bin/rails:9
+  [1m[35m (4.7ms)[0m  [1m[35mCOMMIT[0m
+  ↳ bin/rails:9
+  [1m[35m (0.4ms)[0m  [1m[34mSELECT pg_advisory_unlock(4654010168795477490)[0m
+  ↳ bin/rails:9
+  [1m[35m (0.3ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  ↳ bin/rails:9
+Started GET "/" for 127.0.0.1 at 2018-11-05 18:13:31 +0100
+  [1m[35m (0.6ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  ↳ /Users/THIERRYOSPITAL/.rvm/gems/ruby-2.5.1/gems/activerecord-5.2.1/lib/active_record/log_subscriber.rb:98
+Processing by LoginController#home as HTML
+  Rendering login/home.html.erb within layouts/application
+  Rendered layouts/_headernotconnected.html.erb (0.6ms)
+  Rendered login/home.html.erb within layouts/application (8.4ms)
+Completed 200 OK in 521ms (Views: 504.1ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/login/new" for 127.0.0.1 at 2018-11-05 18:13:37 +0100
+Processing by LoginController#new as HTML
+  Rendering login/new.html.erb within layouts/application
+  Rendered layouts/_headernotconnected.html.erb (0.4ms)
+  Rendered login/new.html.erb within layouts/application (14.5ms)
+Completed 200 OK in 83ms (Views: 39.0ms | ActiveRecord: 12.7ms)
+
+
+Started POST "/login/new" for 127.0.0.1 at 2018-11-05 18:13:47 +0100
+Processing by LoginController#confirm as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"Petm0aojXJJM7ovS/ygEvSRI+syG7yS50Fob2B5Y6e+IH1vxJjNYYhydryVSLZelp8N0bOWDkb9ZaBKdCIqr+w==", "user"=>{"first_name"=>"aaaa", "last_name"=>"aaaa", "email"=>"aaaa", "password"=>"[FILTERED]"}, "commit"=>"Create"}
+  [1m[36mUser Load (2.7ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."email" = $1 LIMIT $2[0m  [["email", "@name_email"], ["LIMIT", 1]]
+  ↳ app/controllers/login_controller.rb:26
+Redirected to http://localhost:3000/login/email
+Completed 302 Found in 11ms (ActiveRecord: 3.0ms)
+
+
+Started GET "/login/email" for 127.0.0.1 at 2018-11-05 18:13:47 +0100
+Processing by LoginController#email as HTML
+  Rendering login/email.html.erb within layouts/application
+  Rendered layouts/_headernotconnected.html.erb (0.4ms)
+  Rendered login/email.html.erb within layouts/application (2.6ms)
+Completed 200 OK in 81ms (Views: 76.9ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/login/new" for 127.0.0.1 at 2018-11-05 18:13:55 +0100
+Processing by LoginController#new as HTML
+  Rendering login/new.html.erb within layouts/application
+  Rendered layouts/_headernotconnected.html.erb (0.7ms)
+  Rendered login/new.html.erb within layouts/application (13.0ms)
+Completed 200 OK in 66ms (Views: 50.0ms | ActiveRecord: 0.0ms)
+
+
+Started POST "/login/new" for 127.0.0.1 at 2018-11-05 18:14:04 +0100
+Processing by LoginController#confirm as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"9cS+TEbsqc+o6ievd7kqy+RMvQM0jK9oLol72N15edxAMINsyvytP/iZA1javLnTZ8czo1fgGm6nu3Kdy6s7yA==", "user"=>{"first_name"=>"THIERRY", "last_name"=>"OSPITAL", "email"=>"ospital.thierry@neuf.fr", "password"=>"[FILTERED]"}, "commit"=>"Create"}
+  [1m[36mUser Load (1.5ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."email" = $1 LIMIT $2[0m  [["email", "@name_email"], ["LIMIT", 1]]
+  ↳ app/controllers/login_controller.rb:26
+Redirected to http://localhost:3000/login/email
+Completed 302 Found in 6ms (ActiveRecord: 1.5ms)
+
+
+Started GET "/login/email" for 127.0.0.1 at 2018-11-05 18:14:04 +0100
+Processing by LoginController#email as HTML
+  Rendering login/email.html.erb within layouts/application
+  Rendered layouts/_headernotconnected.html.erb (0.5ms)
+  Rendered login/email.html.erb within layouts/application (3.6ms)
+Completed 200 OK in 50ms (Views: 46.8ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/login/new" for 127.0.0.1 at 2018-11-05 18:14:11 +0100
+Processing by LoginController#new as HTML
+  Rendering login/new.html.erb within layouts/application
+  Rendered layouts/_headernotconnected.html.erb (0.4ms)
+  Rendered login/new.html.erb within layouts/application (3.9ms)
+Completed 200 OK in 36ms (Views: 33.2ms | ActiveRecord: 0.0ms)
+
+
+Started POST "/login/new" for 127.0.0.1 at 2018-11-05 18:14:31 +0100
+Processing by LoginController#confirm as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"3//gY0irSXoaY/uCRScT4NL+dfiiz7R5gwRedcjSIAlqC91DxLtNikoQ33XoIoD4UXX7WMGjAX8KNlcw3gBiHQ==", "user"=>{"first_name"=>"THIERRY", "last_name"=>"OSPITAL", "email"=>"sacaze.menuiseries@gmail.com", "password"=>"[FILTERED]"}, "commit"=>"Create"}
+  [1m[36mUser Load (0.5ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."email" = $1 LIMIT $2[0m  [["email", "@name_email"], ["LIMIT", 1]]
+  ↳ app/controllers/login_controller.rb:26
+Redirected to http://localhost:3000/login/email
+Completed 302 Found in 6ms (ActiveRecord: 0.4ms)
+
+
+Started GET "/login/email" for 127.0.0.1 at 2018-11-05 18:14:31 +0100
+Processing by LoginController#email as HTML
+  Rendering login/email.html.erb within layouts/application
+  Rendered layouts/_headernotconnected.html.erb (0.6ms)
+  Rendered login/email.html.erb within layouts/application (3.7ms)
+Completed 200 OK in 63ms (Views: 60.6ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/login/new" for 127.0.0.1 at 2018-11-05 18:14:36 +0100
+Processing by LoginController#new as HTML
+  Rendering login/new.html.erb within layouts/application
+  Rendered layouts/_headernotconnected.html.erb (0.6ms)
+  Rendered login/new.html.erb within layouts/application (9.7ms)
+Completed 200 OK in 67ms (Views: 61.7ms | ActiveRecord: 0.0ms)
+
+
+Started POST "/login/new" for 127.0.0.1 at 2018-11-05 18:14:45 +0100
+Processing by LoginController#confirm as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"ZEPBxxm39tXTt2e8odrVuLLJeezW0EGHK47ScDBonsHRt/znlafyJYPEQ0sM30agMUL3TLW89IGivNs1Jrrc1Q==", "user"=>{"first_name"=>"aaaa", "last_name"=>"aaaa", "email"=>"aaaa", "password"=>"[FILTERED]"}, "commit"=>"Create"}
+  [1m[36mUser Load (0.5ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."email" = $1 LIMIT $2[0m  [["email", "@name_email"], ["LIMIT", 1]]
+  ↳ app/controllers/login_controller.rb:26
+Redirected to http://localhost:3000/login/email
+Completed 302 Found in 5ms (ActiveRecord: 0.5ms)
+
+
+Started GET "/login/email" for 127.0.0.1 at 2018-11-05 18:14:45 +0100
+Processing by LoginController#email as HTML
+  Rendering login/email.html.erb within layouts/application
+  Rendered layouts/_headernotconnected.html.erb (0.3ms)
+  Rendered login/email.html.erb within layouts/application (3.4ms)
+Completed 200 OK in 52ms (Views: 48.3ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/login/check" for 127.0.0.1 at 2018-11-05 18:14:51 +0100
+Processing by LoginController#login as HTML
+  Rendering login/login.html.erb within layouts/application
+  Rendered layouts/_headernotconnected.html.erb (0.5ms)
+  Rendered login/login.html.erb within layouts/application (6.5ms)
+Completed 200 OK in 60ms (Views: 46.5ms | ActiveRecord: 0.0ms)
+
+
+Started POST "/login/check" for 127.0.0.1 at 2018-11-05 18:14:56 +0100
+Processing by LoginController#check as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"Jafm71MCRJAbWuHzoNnPnxxbn1+RrXGNPTFzz2b6wyr4mGM5NKBcMvh7FntpLFxZGibODFuV+H+Ai3LKC4tg2g==", "/login/login"=>{"email"=>"aaaa", "password"=>"[FILTERED]"}, "commit"=>"Login"}
+  [1m[36mUser Load (1.7ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."email" = $1 AND "users"."password" = $2 ORDER BY "users"."id" ASC LIMIT $3[0m  [["email", "aaaa"], ["password", "aaaa"], ["LIMIT", 1]]
+  ↳ app/controllers/login_controller.rb:39
+Redirected to http://localhost:3000/login/failed
+Completed 302 Found in 7ms (ActiveRecord: 1.7ms)
+
+
+Started GET "/login/failed" for 127.0.0.1 at 2018-11-05 18:14:56 +0100
+Processing by LoginController#failed as HTML
+  Rendering login/failed.html.erb within layouts/application
+  Rendered layouts/_headernotconnected.html.erb (0.5ms)
+  Rendered login/failed.html.erb within layouts/application (3.3ms)
+Completed 200 OK in 55ms (Views: 49.9ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/login/check" for 127.0.0.1 at 2018-11-05 18:15:00 +0100
+Processing by LoginController#login as HTML
+  Rendering login/login.html.erb within layouts/application
+  Rendered layouts/_headernotconnected.html.erb (0.7ms)
+  Rendered login/login.html.erb within layouts/application (7.0ms)
+Completed 200 OK in 44ms (Views: 41.5ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/" for 127.0.0.1 at 2018-11-05 18:15:02 +0100
+Processing by LoginController#home as HTML
+  Rendering login/home.html.erb within layouts/application
+  Rendered layouts/_headernotconnected.html.erb (1.0ms)
+  Rendered login/home.html.erb within layouts/application (9.6ms)
+Completed 200 OK in 56ms (Views: 52.2ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/login/new" for 127.0.0.1 at 2018-11-05 18:15:06 +0100
+Processing by LoginController#new as HTML
+  Rendering login/new.html.erb within layouts/application
+  Rendered layouts/_headernotconnected.html.erb (0.4ms)
+  Rendered login/new.html.erb within layouts/application (4.5ms)
+Completed 200 OK in 43ms (Views: 30.6ms | ActiveRecord: 0.0ms)
+
+
+Started POST "/login/new" for 127.0.0.1 at 2018-11-05 18:15:14 +0100
+Processing by LoginController#confirm as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"szxW9lqDf64Qx1J1Pv0Q0w6G4qHdyvxu3zbu6ZXHeNAGyGvW1pN7XkC0doKT+IPLjQ1sAb6mSWhWBOesgxU6xA==", "user"=>{"first_name"=>"THIERRY", "last_name"=>"OSPITAL", "email"=>"ospital.thierry@neuf.fr", "password"=>"[FILTERED]"}, "commit"=>"Create"}
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."email" = $1 LIMIT $2[0m  [["email", "@name_email"], ["LIMIT", 1]]
+  ↳ app/controllers/login_controller.rb:26
+Redirected to http://localhost:3000/login/email
+Completed 302 Found in 3ms (ActiveRecord: 0.4ms)
+
+
+Started GET "/login/email" for 127.0.0.1 at 2018-11-05 18:15:14 +0100
+Processing by LoginController#email as HTML
+  Rendering login/email.html.erb within layouts/application
+  Rendered layouts/_headernotconnected.html.erb (0.3ms)
+  Rendered login/email.html.erb within layouts/application (2.3ms)
+Completed 200 OK in 33ms (Views: 29.6ms | ActiveRecord: 0.0ms)
+
+
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT  "users".* FROM "users" LIMIT $1[0m  [["LIMIT", 11]]
+Started GET "/login/new" for 127.0.0.1 at 2018-11-05 18:18:02 +0100
+Processing by LoginController#new as HTML
+  Rendering login/new.html.erb within layouts/application
+  Rendered layouts/_headernotconnected.html.erb (0.5ms)
+  Rendered login/new.html.erb within layouts/application (8.2ms)
+Completed 200 OK in 84ms (Views: 56.1ms | ActiveRecord: 6.0ms)
+
+
+Started POST "/login/new" for 127.0.0.1 at 2018-11-05 18:18:10 +0100
+Processing by LoginController#confirm as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"5DdseRITmI9l/RjCfZsYx4dt2bAe6Xp4JxCPtkCi6kNRw1FZngOcfzWOPDXQnovfBOZXEH2Fz36uIobzVnCoVw==", "user"=>{"first_name"=>"", "last_name"=>"", "email"=>"aaaa", "password"=>"[FILTERED]"}, "commit"=>"Create"}
+Redirected to http://localhost:3000/login/blank
+Completed 302 Found in 5ms (ActiveRecord: 0.0ms)
+
+
+Started GET "/login/blank" for 127.0.0.1 at 2018-11-05 18:18:11 +0100
+Processing by LoginController#blank as HTML
+  Rendering login/blank.html.erb within layouts/application
+  Rendered layouts/_headernotconnected.html.erb (0.5ms)
+  Rendered login/blank.html.erb within layouts/application (2.9ms)
+Completed 200 OK in 71ms (Views: 68.8ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/login/new" for 127.0.0.1 at 2018-11-05 18:18:14 +0100
+Processing by LoginController#new as HTML
+  Rendering login/new.html.erb within layouts/application
+  Rendered layouts/_headernotconnected.html.erb (0.9ms)
+  Rendered login/new.html.erb within layouts/application (7.2ms)
+Completed 200 OK in 43ms (Views: 39.4ms | ActiveRecord: 0.0ms)
+
+
+Started POST "/login/new" for 127.0.0.1 at 2018-11-05 18:18:21 +0100
+Processing by LoginController#confirm as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"AFmNjDm2cLfIKHUqcVsFZsNCmpErrt4iDwfrX8fEOOS1rbCstaZ0R5hbUd3cXpZ+QMkUMUjCaySGNeIa0RZ68A==", "user"=>{"first_name"=>"aaaa", "last_name"=>"", "email"=>"aaaa", "password"=>"[FILTERED]"}, "commit"=>"Create"}
+Redirected to http://localhost:3000/login/blank
+Completed 302 Found in 2ms (ActiveRecord: 0.0ms)
+
+
+Started GET "/login/blank" for 127.0.0.1 at 2018-11-05 18:18:21 +0100
+Processing by LoginController#blank as HTML
+  Rendering login/blank.html.erb within layouts/application
+  Rendered layouts/_headernotconnected.html.erb (0.6ms)
+  Rendered login/blank.html.erb within layouts/application (3.9ms)
+Completed 200 OK in 34ms (Views: 30.6ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/login/new" for 127.0.0.1 at 2018-11-05 18:18:23 +0100
+Processing by LoginController#new as HTML
+  Rendering login/new.html.erb within layouts/application
+  Rendered layouts/_headernotconnected.html.erb (0.5ms)
+  Rendered login/new.html.erb within layouts/application (6.3ms)
+Completed 200 OK in 45ms (Views: 38.6ms | ActiveRecord: 0.0ms)
+
+
+Started POST "/login/new" for 127.0.0.1 at 2018-11-05 18:18:29 +0100
+Processing by LoginController#confirm as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"i4y5iaxc8/54hK2GfNBPPiozl8OQyVmOfjrqZQDXtyA+eISpIEz3Dij3iXHR1dwmqbgZY/Ol7Ij3COMgFgX1NA==", "user"=>{"first_name"=>"aaaa", "last_name"=>"aaaa", "email"=>"aaaa", "password"=>"[FILTERED]"}, "commit"=>"Create"}
+  [1m[36mUser Load (0.6ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."email" = $1 LIMIT $2[0m  [["email", "@name_email"], ["LIMIT", 1]]
+  ↳ app/controllers/login_controller.rb:26
+Redirected to http://localhost:3000/login/email
+Completed 302 Found in 8ms (ActiveRecord: 0.6ms)
+
+
+Started GET "/login/email" for 127.0.0.1 at 2018-11-05 18:18:29 +0100
+Processing by LoginController#email as HTML
+  Rendering login/email.html.erb within layouts/application
+  Rendered layouts/_headernotconnected.html.erb (0.3ms)
+  Rendered login/email.html.erb within layouts/application (2.3ms)
+Completed 200 OK in 36ms (Views: 32.0ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/login/new" for 127.0.0.1 at 2018-11-05 18:22:09 +0100
+Processing by LoginController#new as HTML
+  Rendering login/new.html.erb within layouts/application
+  Rendered layouts/_headernotconnected.html.erb (0.7ms)
+  Rendered login/new.html.erb within layouts/application (7.7ms)
+Completed 200 OK in 58ms (Views: 51.0ms | ActiveRecord: 0.0ms)
+
+
+Started POST "/login/new" for 127.0.0.1 at 2018-11-05 18:22:19 +0100
+Processing by LoginController#confirm as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"wOx8ULu5qDHH37NvVN8TlMLc2zog18M41tStIi9Ygjp1GEFwN6mswZesl5j52oCMQVdVmkO7dj5f5qRnOYrALg==", "user"=>{"first_name"=>"THIERRY", "last_name"=>"OSPITAL", "email"=>"ospital.thierry@neuf.fr", "password"=>"[FILTERED]"}, "commit"=>"Create"}
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."email" = $1 LIMIT $2[0m  [["email", "@name_email"], ["LIMIT", 1]]
+  ↳ app/controllers/login_controller.rb:26
+Redirected to http://localhost:3000/login/email
+Completed 302 Found in 4ms (ActiveRecord: 0.4ms)
+
+
+Started GET "/login/email" for 127.0.0.1 at 2018-11-05 18:22:19 +0100
+Processing by LoginController#email as HTML
+  Rendering login/email.html.erb within layouts/application
+  Rendered layouts/_headernotconnected.html.erb (0.5ms)
+  Rendered login/email.html.erb within layouts/application (3.0ms)
+Completed 200 OK in 29ms (Views: 26.1ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/login/new" for 127.0.0.1 at 2018-11-05 18:23:18 +0100
+Processing by LoginController#new as HTML
+  Rendering login/new.html.erb within layouts/application
+  Rendered layouts/_headernotconnected.html.erb (0.4ms)
+  Rendered login/new.html.erb within layouts/application (6.5ms)
+Completed 200 OK in 74ms (Views: 48.4ms | ActiveRecord: 7.6ms)
+
+
+Started POST "/login/new" for 127.0.0.1 at 2018-11-05 18:23:26 +0100
+Processing by LoginController#confirm as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"d9M0lVGoQ/ETY+mQAmk0yRA5Lb9vsmm/L95s1SK8tezCJwm13bhHAUMQzWevbKfRk7KjHwze3Lmm7GWQNG73+A==", "user"=>{"first_name"=>"THIERRY", "last_name"=>"OSPITAL", "email"=>"ospital.thierry@neuf.fr", "password"=>"[FILTERED]"}, "commit"=>"Create"}
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."email" = $1 LIMIT $2[0m  [["email", "@name_email"], ["LIMIT", 1]]
+  ↳ app/controllers/login_controller.rb:26
+Redirected to http://localhost:3000/login/email
+Completed 302 Found in 5ms (ActiveRecord: 0.3ms)
+
+
+Started GET "/login/email" for 127.0.0.1 at 2018-11-05 18:23:27 +0100
+Processing by LoginController#email as HTML
+  Rendering login/email.html.erb within layouts/application
+  Rendered layouts/_headernotconnected.html.erb (0.5ms)
+  Rendered login/email.html.erb within layouts/application (2.8ms)
+Completed 200 OK in 29ms (Views: 27.3ms | ActiveRecord: 0.0ms)
+
+
+  [1m[36mUser Load (2.1ms)[0m  [1m[34mSELECT  "users".* FROM "users" LIMIT $1[0m  [["LIMIT", 11]]
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT  "users".* FROM "users" ORDER BY "users"."id" DESC LIMIT $1[0m  [["LIMIT", 1]]
+Started GET "/login/check" for 127.0.0.1 at 2018-11-05 18:28:07 +0100
+Processing by LoginController#login as HTML
+  Rendering login/login.html.erb within layouts/application
+  Rendered layouts/_headernotconnected.html.erb (0.4ms)
+  Rendered login/login.html.erb within layouts/application (5.8ms)
+Completed 200 OK in 58ms (Views: 53.1ms | ActiveRecord: 0.0ms)
+
+
+Started POST "/login/check" for 127.0.0.1 at 2018-11-05 18:28:13 +0100
+Processing by LoginController#check as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"AD338aEcODVnpERPPDdGazMg9oHNu4zX+5FLt9uLGw/dAnInxr4gl4SFs8f1wtWtNV2n0geDBSVGK0qytvq4/w==", "/login/login"=>{"email"=>"aaaa", "password"=>"[FILTERED]"}, "commit"=>"Login"}
+  [1m[36mUser Load (1.3ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."email" = $1 AND "users"."password" = $2 ORDER BY "users"."id" ASC LIMIT $3[0m  [["email", "aaaa"], ["password", "aaaa"], ["LIMIT", 1]]
+  ↳ app/controllers/login_controller.rb:40
+Redirected to http://localhost:3000/login/failed
+Completed 302 Found in 6ms (ActiveRecord: 1.3ms)
+
+
+Started GET "/login/failed" for 127.0.0.1 at 2018-11-05 18:28:13 +0100
+Processing by LoginController#failed as HTML
+  Rendering login/failed.html.erb within layouts/application
+  Rendered layouts/_headernotconnected.html.erb (0.6ms)
+  Rendered login/failed.html.erb within layouts/application (3.1ms)
+Completed 200 OK in 33ms (Views: 30.5ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/login/check" for 127.0.0.1 at 2018-11-05 18:28:15 +0100
+Processing by LoginController#login as HTML
+  Rendering login/login.html.erb within layouts/application
+  Rendered layouts/_headernotconnected.html.erb (0.5ms)
+  Rendered login/login.html.erb within layouts/application (5.9ms)
+Completed 200 OK in 42ms (Views: 38.7ms | ActiveRecord: 0.0ms)
+
+
+Started POST "/login/check" for 127.0.0.1 at 2018-11-05 18:28:20 +0100
+Processing by LoginController#check as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"L4Rkg0C9nU5bOMsbYU8vS2YnzsNS9plz9G8WNXc4DATyu+FVJx+F7LgZPJOouryNYFqfkJjOEIFJ1RcwGkmv9A==", "/login/login"=>{"email"=>"aaa", "password"=>"[FILTERED]"}, "commit"=>"Login"}
+  [1m[36mUser Load (1.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."email" = $1 AND "users"."password" = $2 ORDER BY "users"."id" ASC LIMIT $3[0m  [["email", "aaa"], ["password", "aaa"], ["LIMIT", 1]]
+  ↳ app/controllers/login_controller.rb:40
+Redirected to http://localhost:3000/login/failed
+Completed 302 Found in 5ms (ActiveRecord: 1.2ms)
+
+
+Started GET "/login/failed" for 127.0.0.1 at 2018-11-05 18:28:20 +0100
+Processing by LoginController#failed as HTML
+  Rendering login/failed.html.erb within layouts/application
+  Rendered layouts/_headernotconnected.html.erb (0.4ms)
+  Rendered login/failed.html.erb within layouts/application (3.1ms)
+Completed 200 OK in 30ms (Views: 27.3ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/login/new" for 127.0.0.1 at 2018-11-05 18:28:22 +0100
+Processing by LoginController#new as HTML
+  Rendering login/new.html.erb within layouts/application
+  Rendered layouts/_headernotconnected.html.erb (0.6ms)
+  Rendered login/new.html.erb within layouts/application (5.8ms)
+Completed 200 OK in 56ms (Views: 31.8ms | ActiveRecord: 0.0ms)
+
+
+Started POST "/login/new" for 127.0.0.1 at 2018-11-05 18:28:30 +0100
+Processing by LoginController#confirm as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"+Z7FOfPMSxn9naYv9gdaJB4mudp0Sr1G7h81kfRNdCRMavgZf9xP6a3ugthbAsk8na03ehcmCEBnLTzU4p82MA==", "user"=>{"first_name"=>"aaaa", "last_name"=>"aaaa", "email"=>"aaaa", "password"=>"[FILTERED]"}, "commit"=>"Create"}
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."email" = $1 LIMIT $2[0m  [["email", "@name_email"], ["LIMIT", 1]]
+  ↳ app/controllers/login_controller.rb:26
+Redirected to http://localhost:3000/login/email
+Completed 302 Found in 3ms (ActiveRecord: 0.3ms)
+
+
+Started GET "/login/email" for 127.0.0.1 at 2018-11-05 18:28:30 +0100
+Processing by LoginController#email as HTML
+  Rendering login/email.html.erb within layouts/application
+  Rendered layouts/_headernotconnected.html.erb (0.6ms)
+  Rendered login/email.html.erb within layouts/application (3.6ms)
+Completed 200 OK in 36ms (Views: 31.2ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/login/email" for 127.0.0.1 at 2018-11-05 18:29:18 +0100
+Processing by LoginController#email as HTML
+  Rendering login/email.html.erb within layouts/application
+  Rendered layouts/_headernotconnected.html.erb (0.3ms)
+  Rendered login/email.html.erb within layouts/application (2.6ms)
+Completed 200 OK in 34ms (Views: 31.9ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/login/new" for 127.0.0.1 at 2018-11-05 18:29:22 +0100
+Processing by LoginController#new as HTML
+  Rendering login/new.html.erb within layouts/application
+  Rendered layouts/_headernotconnected.html.erb (0.3ms)
+  Rendered login/new.html.erb within layouts/application (5.8ms)
+Completed 200 OK in 67ms (Views: 39.1ms | ActiveRecord: 4.4ms)
+
+
+Started POST "/login/new" for 127.0.0.1 at 2018-11-05 18:29:27 +0100
+Processing by LoginController#confirm as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"jHTez2dljUc0AKLHchDKYKlpNqejcFhlVvdsmJUFCyU29FMdDmZ+9iQ10nmP4meoUY3SNlx9TJlJZPZJE0Fw0A==", "user"=>{"first_name"=>"aaaa", "last_name"=>"aaaa", "email"=>"aaaa", "password"=>"[FILTERED]"}, "commit"=>"Create"}
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."email" = $1 LIMIT $2[0m  [["email", "@name_email"], ["LIMIT", 1]]
+  ↳ app/controllers/login_controller.rb:26
+Completed 500 Internal Server Error in 7ms (ActiveRecord: 0.4ms)
+
+
+  
+NoMethodError (undefined method `nil' for nil:NilClass):
+  
+app/controllers/login_controller.rb:26:in `confirm'
+Started GET "/login/check" for 127.0.0.1 at 2018-11-05 18:33:58 +0100
+Processing by LoginController#login as HTML
+  Rendering login/login.html.erb within layouts/application
+  Rendered layouts/_headernotconnected.html.erb (0.7ms)
+  Rendered login/login.html.erb within layouts/application (12.3ms)
+Completed 200 OK in 92ms (Views: 85.2ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/login/new" for 127.0.0.1 at 2018-11-05 18:33:59 +0100
+Processing by LoginController#new as HTML
+  Rendering login/new.html.erb within layouts/application
+  Rendered layouts/_headernotconnected.html.erb (0.7ms)
+  Rendered login/new.html.erb within layouts/application (7.0ms)
+Completed 200 OK in 57ms (Views: 50.0ms | ActiveRecord: 0.0ms)
+
+
+Started POST "/login/new" for 127.0.0.1 at 2018-11-05 18:34:06 +0100
+Processing by LoginController#confirm as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"I2fW7MYUtmJOV4a7clIk1PcDirue1i335pDTkEDa6suWk+vMSgSykh4kokzfV7fMdIgEG/26mPFvotrVVgio3w==", "user"=>{"first_name"=>"THIERRY", "last_name"=>"OSPITAL", "email"=>"ospital.thierry@neuf.fr", "password"=>"[FILTERED]"}, "commit"=>"Create"}
+  [1m[36mUser Load (0.5ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."email" = $1 LIMIT $2[0m  [["email", "@name_email"], ["LIMIT", 1]]
+  ↳ app/controllers/login_controller.rb:26
+Completed 500 Internal Server Error in 20ms (ActiveRecord: 0.5ms)
+
+
+  
+NoMethodError (undefined method `nil' for nil:NilClass):
+  
+app/controllers/login_controller.rb:26:in `confirm'
+Started POST "/login/new" for 127.0.0.1 at 2018-11-05 18:34:20 +0100
+Processing by LoginController#confirm as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"qrHbuw7H4Eo53twSBicMkAcKGAZm2SY3DfZKo7iYnDMQMVZpZ8QT+ynrrKz71aFY/+78l5nUMssSZdByPtznxg==", "user"=>{"first_name"=>"THIERRY", "last_name"=>"OSPITAL", "email"=>"ospital.thierry@neuf.fr", "password"=>"[FILTERED]"}, "commit"=>"Create"}
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."email" = $1 LIMIT $2[0m  [["email", "@name_email"], ["LIMIT", 1]]
+  ↳ app/controllers/login_controller.rb:26
+Redirected to http://localhost:3000/login/email
+Completed 302 Found in 35ms (ActiveRecord: 15.1ms)
+
+
+Started GET "/login/email" for 127.0.0.1 at 2018-11-05 18:34:20 +0100
+Processing by LoginController#email as HTML
+  Rendering login/email.html.erb within layouts/application
+  Rendered layouts/_headernotconnected.html.erb (0.4ms)
+  Rendered login/email.html.erb within layouts/application (2.9ms)
+Completed 200 OK in 38ms (Views: 35.4ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/login/new" for 127.0.0.1 at 2018-11-05 18:36:40 +0100
+Processing by LoginController#new as HTML
+  Rendering login/new.html.erb within layouts/application
+  Rendered layouts/_headernotconnected.html.erb (0.6ms)
+  Rendered login/new.html.erb within layouts/application (7.9ms)
+Completed 200 OK in 52ms (Views: 47.5ms | ActiveRecord: 0.0ms)
+
+
+Started POST "/login/new" for 127.0.0.1 at 2018-11-05 18:36:49 +0100
+Processing by LoginController#confirm as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"WvhmVDyQ0XQOVCbHW8kH1DPe6w0hk7k9t+Al9fYu9MDvDFt0sIDVhF4nAjD2zJTMsFVlrUL/DDs+0iyw4Py21A==", "user"=>{"first_name"=>"THIERRY", "last_name"=>"OSPITAL", "email"=>"ospital.thierry@neuf.fr", "password"=>"[FILTERED]"}, "commit"=>"Create"}
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."email" = $1 LIMIT $2[0m  [["email", "@name_email"], ["LIMIT", 1]]
+  ↳ app/controllers/login_controller.rb:26
+Redirected to http://localhost:3000/login/email
+Completed 302 Found in 3ms (ActiveRecord: 0.4ms)
+
+
+Started GET "/login/email" for 127.0.0.1 at 2018-11-05 18:36:49 +0100
+Processing by LoginController#email as HTML
+  Rendering login/email.html.erb within layouts/application
+  Rendered layouts/_headernotconnected.html.erb (0.3ms)
+  Rendered login/email.html.erb within layouts/application (2.2ms)
+Completed 200 OK in 34ms (Views: 29.7ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/login/new" for 127.0.0.1 at 2018-11-05 18:37:04 +0100
+Processing by LoginController#new as HTML
+  Rendering login/new.html.erb within layouts/application
+  Rendered layouts/_headernotconnected.html.erb (0.8ms)
+  Rendered login/new.html.erb within layouts/application (7.6ms)
+Completed 200 OK in 90ms (Views: 85.2ms | ActiveRecord: 0.0ms)
+
+
+Started POST "/login/new" for 127.0.0.1 at 2018-11-05 18:37:09 +0100
+Processing by LoginController#confirm as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"jDlG9LcD6LU69SFcM6H41BFLPcmegumnTupGKbT8IPo5zXvUOxPsRWqGBauepGvMksCzaf3uXKHH2E9soi5i7g==", "user"=>{"first_name"=>"aaa", "last_name"=>"aaa", "email"=>"aaa", "password"=>"[FILTERED]"}, "commit"=>"Create"}
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."email" = $1 LIMIT $2[0m  [["email", "@name_email"], ["LIMIT", 1]]
+  ↳ app/controllers/login_controller.rb:26
+Redirected to http://localhost:3000/login/email
+Completed 302 Found in 3ms (ActiveRecord: 0.3ms)
+
+
+Started GET "/login/email" for 127.0.0.1 at 2018-11-05 18:37:09 +0100
+Processing by LoginController#email as HTML
+  Rendering login/email.html.erb within layouts/application
+  Rendered layouts/_headernotconnected.html.erb (0.6ms)
+  Rendered login/email.html.erb within layouts/application (4.1ms)
+Completed 200 OK in 48ms (Views: 44.5ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/login/new" for 127.0.0.1 at 2018-11-05 18:37:12 +0100
+Processing by LoginController#new as HTML
+  Rendering login/new.html.erb within layouts/application
+  Rendered layouts/_headernotconnected.html.erb (0.3ms)
+  Rendered login/new.html.erb within layouts/application (3.5ms)
+Completed 200 OK in 37ms (Views: 33.1ms | ActiveRecord: 0.0ms)
+
+
+Started POST "/login/new" for 127.0.0.1 at 2018-11-05 18:37:23 +0100
+Processing by LoginController#confirm as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"IneE7B3euBKst1gr6xB+0+w7hh/QgI8vUGgJDjzrSRCXg7nMkc684vzEfNxGFe3Lb7AIv7PsOinZWgBLKjkLBA==", "user"=>{"first_name"=>"bbb", "last_name"=>"bbb", "email"=>"bbb", "password"=>"[FILTERED]"}, "commit"=>"Create"}
+  [1m[36mUser Load (1.0ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."email" = $1 LIMIT $2[0m  [["email", "@name_email"], ["LIMIT", 1]]
+  ↳ app/controllers/login_controller.rb:26
+Redirected to http://localhost:3000/login/email
+Completed 302 Found in 4ms (ActiveRecord: 1.0ms)
+
+
+Started GET "/login/email" for 127.0.0.1 at 2018-11-05 18:37:23 +0100
+Processing by LoginController#email as HTML
+  Rendering login/email.html.erb within layouts/application
+  Rendered layouts/_headernotconnected.html.erb (0.6ms)
+  Rendered login/email.html.erb within layouts/application (8.5ms)
+Completed 200 OK in 87ms (Views: 84.0ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/login/new" for 127.0.0.1 at 2018-11-05 18:37:26 +0100
+Processing by LoginController#new as HTML
+  Rendering login/new.html.erb within layouts/application
+  Rendered layouts/_headernotconnected.html.erb (0.8ms)
+  Rendered login/new.html.erb within layouts/application (11.6ms)
+Completed 200 OK in 81ms (Views: 74.7ms | ActiveRecord: 0.0ms)
+
+
+Started POST "/login/new" for 127.0.0.1 at 2018-11-05 18:41:39 +0100
+Processing by LoginController#confirm as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"JBXMlMdsdncKzu0HmIXUTditmhuy5tjxBXimHwktMOKR4fG0S3xyh1q9yfA1gEdVWyYUu9GKbfeMSq9aH/9y9g==", "user"=>{"first_name"=>"THIERRY", "last_name"=>"OSPITAL", "email"=>"ospital.thierry@neuf.fr", "password"=>"[FILTERED]"}, "commit"=>"Create"}
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."email" = $1 LIMIT $2[0m  [["email", "@name_email"], ["LIMIT", 1]]
+  ↳ app/controllers/login_controller.rb:26
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/login_controller.rb:29
+  [1m[36mUser Exists (0.6ms)[0m  [1m[34mSELECT  1 AS one FROM "users" WHERE "users"."email" = $1 LIMIT $2[0m  [["email", "ospital.thierry@neuf.fr"], ["LIMIT", 1]]
+  ↳ app/controllers/login_controller.rb:29
+  [1m[36mUser Create (38.7ms)[0m  [1m[32mINSERT INTO "users" ("first_name", "last_name", "email", "password", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6) RETURNING "id"[0m  [["first_name", "THIERRY"], ["last_name", "OSPITAL"], ["email", "ospital.thierry@neuf.fr"], ["password", "test"], ["created_at", "2018-11-05 17:41:39.138960"], ["updated_at", "2018-11-05 17:41:39.138960"]]
+  ↳ app/controllers/login_controller.rb:29
+  [1m[35m (122.3ms)[0m  [1m[35mCOMMIT[0m
+  ↳ app/controllers/login_controller.rb:29
+  Rendering login/confirm.html.erb within layouts/application
+  Rendered layouts/_headernotconnected.html.erb (0.7ms)
+  Rendered login/confirm.html.erb within layouts/application (4.7ms)
+Completed 200 OK in 251ms (Views: 43.0ms | ActiveRecord: 180.5ms)
+
+
+Started GET "/login/check" for 127.0.0.1 at 2018-11-05 18:41:41 +0100
+Processing by LoginController#login as HTML
+  Rendering login/login.html.erb within layouts/application
+  Rendered layouts/_headernotconnected.html.erb (0.9ms)
+  Rendered login/login.html.erb within layouts/application (7.2ms)
+Completed 200 OK in 48ms (Views: 42.6ms | ActiveRecord: 0.0ms)
+
+
+Started POST "/login/check" for 127.0.0.1 at 2018-11-05 18:41:56 +0100
+Processing by LoginController#check as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"Qw6F+KyRIz+t/ZC+5U0Q+ySmaseHA1gbC+XH+j6QnkueMQAuyzM7nU7cZzYsuIM9Its7lE070em2X8b/U+E9uw==", "/login/login"=>{"email"=>"ospital.thierry@neuf.fr", "password"=>"[FILTERED]"}, "commit"=>"Login"}
+  [1m[36mUser Load (7.9ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."email" = $1 AND "users"."password" = $2 ORDER BY "users"."id" ASC LIMIT $3[0m  [["email", "ospital.thierry@neuf.fr"], ["password", "aaaa"], ["LIMIT", 1]]
+  ↳ app/controllers/login_controller.rb:39
+Redirected to http://localhost:3000/login/failed
+Completed 302 Found in 13ms (ActiveRecord: 7.9ms)
+
+
+Started GET "/login/failed" for 127.0.0.1 at 2018-11-05 18:41:56 +0100
+Processing by LoginController#failed as HTML
+  Rendering login/failed.html.erb within layouts/application
+  Rendered layouts/_headernotconnected.html.erb (0.3ms)
+  Rendered login/failed.html.erb within layouts/application (2.5ms)
+Completed 200 OK in 40ms (Views: 36.5ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/login/check" for 127.0.0.1 at 2018-11-05 18:41:59 +0100
+Processing by LoginController#login as HTML
+  Rendering login/login.html.erb within layouts/application
+  Rendered layouts/_headernotconnected.html.erb (0.6ms)
+  Rendered login/login.html.erb within layouts/application (6.1ms)
+Completed 200 OK in 48ms (Views: 43.5ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/login/new" for 127.0.0.1 at 2018-11-05 18:42:02 +0100
+Processing by LoginController#new as HTML
+  Rendering login/new.html.erb within layouts/application
+  Rendered layouts/_headernotconnected.html.erb (0.5ms)
+  Rendered login/new.html.erb within layouts/application (9.0ms)
+Completed 200 OK in 75ms (Views: 70.5ms | ActiveRecord: 0.0ms)
+
+
+Started POST "/login/new" for 127.0.0.1 at 2018-11-05 18:42:09 +0100
+Processing by LoginController#confirm as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"Fk8AU2OF2uBlBb59GrSIshWVj6edgyAkm7zWg0h6kqqjuz1z75XeEDV2moq3sRuqlh4BB/7vlSISjt/GXqjQvg==", "user"=>{"first_name"=>"aaa", "last_name"=>"aaa", "email"=>"aaa", "password"=>"[FILTERED]"}, "commit"=>"Create"}
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."email" = $1 LIMIT $2[0m  [["email", "@name_email"], ["LIMIT", 1]]
+  ↳ app/controllers/login_controller.rb:26
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/login_controller.rb:29
+  [1m[36mUser Exists (0.5ms)[0m  [1m[34mSELECT  1 AS one FROM "users" WHERE "users"."email" = $1 LIMIT $2[0m  [["email", "aaa"], ["LIMIT", 1]]
+  ↳ app/controllers/login_controller.rb:29
+  [1m[36mUser Create (0.6ms)[0m  [1m[32mINSERT INTO "users" ("first_name", "last_name", "email", "password", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6) RETURNING "id"[0m  [["first_name", "aaa"], ["last_name", "aaa"], ["email", "aaa"], ["password", "aaa"], ["created_at", "2018-11-05 17:42:09.419309"], ["updated_at", "2018-11-05 17:42:09.419309"]]
+  ↳ app/controllers/login_controller.rb:29
+  [1m[35m (5.9ms)[0m  [1m[35mCOMMIT[0m
+  ↳ app/controllers/login_controller.rb:29
+  Rendering login/confirm.html.erb within layouts/application
+  Rendered layouts/_headernotconnected.html.erb (0.6ms)
+  Rendered login/confirm.html.erb within layouts/application (4.7ms)
+Completed 200 OK in 51ms (Views: 34.5ms | ActiveRecord: 7.6ms)
+
+
+Started GET "/login/check" for 127.0.0.1 at 2018-11-05 18:42:11 +0100
+Processing by LoginController#login as HTML
+  Rendering login/login.html.erb within layouts/application
+  Rendered layouts/_headernotconnected.html.erb (0.5ms)
+  Rendered login/login.html.erb within layouts/application (5.6ms)
+Completed 200 OK in 56ms (Views: 50.6ms | ActiveRecord: 0.0ms)
+
+
+Started POST "/login/check" for 127.0.0.1 at 2018-11-05 18:42:15 +0100
+Processing by LoginController#check as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"UDlgw18SJRHurXOZCUL/0kK7CBpUeyn9U2gBFIkd0WGNBuUVOLA9sw2MhBHAt2wURMZZSZ5DoA/u0gAR5GxykQ==", "/login/login"=>{"email"=>"aaa", "password"=>"[FILTERED]"}, "commit"=>"Login"}
+  [1m[36mUser Load (7.4ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."email" = $1 AND "users"."password" = $2 ORDER BY "users"."id" ASC LIMIT $3[0m  [["email", "aaa"], ["password", "aaa"], ["LIMIT", 1]]
+  ↳ app/controllers/login_controller.rb:39
+Redirected to http://localhost:3000/login/success
+Completed 302 Found in 24ms (ActiveRecord: 7.4ms)
+
+
+Started GET "/login/success" for 127.0.0.1 at 2018-11-05 18:42:15 +0100
+Processing by LoginController#success as HTML
+  Rendering login/success.html.erb within layouts/application
+  Rendered layouts/_headernotconnected.html.erb (0.2ms)
+  Rendered login/success.html.erb within layouts/application (1.9ms)
+Completed 200 OK in 24ms (Views: 21.8ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/" for 127.0.0.1 at 2018-11-05 18:42:19 +0100
+Processing by LoginController#home as HTML
+  [1m[36mUser Load (1.8ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/controllers/login_controller.rb:5
+  Rendering login/home.html.erb within layouts/application
+  Rendered layouts/_headerconnected.html.erb (0.5ms)
+  [1m[36mUser Load (0.7ms)[0m  [1m[34mSELECT "users".* FROM "users"[0m
+  ↳ app/views/login/home.html.erb:10
+  Rendered login/home.html.erb within layouts/application (7.0ms)
+Completed 200 OK in 58ms (Views: 41.7ms | ActiveRecord: 2.5ms)
+
+
+Started GET "/" for 127.0.0.1 at 2018-11-05 18:42:28 +0100
+Processing by LoginController#home as HTML
+  [1m[36mUser Load (2.5ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/controllers/login_controller.rb:5
+  Rendering login/home.html.erb within layouts/application
+  Rendered layouts/_headerconnected.html.erb (0.7ms)
+  [1m[36mUser Load (1.9ms)[0m  [1m[34mSELECT "users".* FROM "users"[0m
+  ↳ app/views/login/home.html.erb:10
+  Rendered login/home.html.erb within layouts/application (7.2ms)
+Completed 200 OK in 50ms (Views: 40.5ms | ActiveRecord: 4.5ms)
+
+
+Started GET "/" for 127.0.0.1 at 2018-11-05 18:42:29 +0100
+Processing by LoginController#home as HTML
+  [1m[36mUser Load (8.1ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/controllers/login_controller.rb:5
+  Rendering login/home.html.erb within layouts/application
+  Rendered layouts/_headerconnected.html.erb (0.6ms)
+  [1m[36mUser Load (4.0ms)[0m  [1m[34mSELECT "users".* FROM "users"[0m
+  ↳ app/views/login/home.html.erb:10
+  Rendered login/home.html.erb within layouts/application (9.6ms)
+Completed 200 OK in 65ms (Views: 47.3ms | ActiveRecord: 12.1ms)
+
+
+Started GET "/login/logout" for 127.0.0.1 at 2018-11-05 18:42:29 +0100
+Processing by LoginController#logout as HTML
+  Rendering login/logout.html.erb within layouts/application
+  Rendered layouts/_headerconnected.html.erb (0.5ms)
+  Rendered login/logout.html.erb within layouts/application (4.6ms)
+Completed 200 OK in 47ms (Views: 41.8ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/" for 127.0.0.1 at 2018-11-05 18:42:31 +0100
+Processing by LoginController#home as HTML
+  Rendering login/home.html.erb within layouts/application
+  Rendered layouts/_headernotconnected.html.erb (0.6ms)
+  Rendered login/home.html.erb within layouts/application (7.1ms)
+Completed 200 OK in 62ms (Views: 58.2ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/login/new" for 127.0.0.1 at 2018-11-05 18:42:33 +0100
+Processing by LoginController#new as HTML
+  Rendering login/new.html.erb within layouts/application
+  Rendered layouts/_headernotconnected.html.erb (0.8ms)
+  Rendered login/new.html.erb within layouts/application (7.0ms)
+Completed 200 OK in 54ms (Views: 49.0ms | ActiveRecord: 0.0ms)
+
+
+Started POST "/login/new" for 127.0.0.1 at 2018-11-05 18:42:38 +0100
+Processing by LoginController#confirm as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"rOtm/8cY1H+0r7NBM00EKXfcM7y4seYzZAOWLGdv6mIZH1vfSwjQj+Tcl7aeSJcx9Fe9HNvdUzXtMZ9pcb2odg==", "user"=>{"first_name"=>"aaa", "last_name"=>"aaa", "email"=>"aaa", "password"=>"[FILTERED]"}, "commit"=>"Create"}
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."email" = $1 LIMIT $2[0m  [["email", "@name_email"], ["LIMIT", 1]]
+  ↳ app/controllers/login_controller.rb:26
+  [1m[35m (0.3ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/login_controller.rb:29
+  [1m[36mUser Exists (0.4ms)[0m  [1m[34mSELECT  1 AS one FROM "users" WHERE "users"."email" = $1 LIMIT $2[0m  [["email", "aaa"], ["LIMIT", 1]]
+  ↳ app/controllers/login_controller.rb:29
+  [1m[35m (0.3ms)[0m  [1m[31mROLLBACK[0m
+  ↳ app/controllers/login_controller.rb:29
+  Rendering login/confirm.html.erb within layouts/application
+  Rendered layouts/_headernotconnected.html.erb (0.8ms)
+  Rendered login/confirm.html.erb within layouts/application (4.8ms)
+Completed 200 OK in 1361ms (Views: 30.2ms | ActiveRecord: 1.3ms)
+
+
+Started GET "/login/check" for 127.0.0.1 at 2018-11-05 18:42:43 +0100
+Processing by LoginController#login as HTML
+  Rendering login/login.html.erb within layouts/application
+  Rendered layouts/_headernotconnected.html.erb (0.5ms)
+  Rendered login/login.html.erb within layouts/application (5.6ms)
+Completed 200 OK in 47ms (Views: 43.5ms | ActiveRecord: 0.0ms)
+
+
+Started POST "/login/check" for 127.0.0.1 at 2018-11-05 18:42:47 +0100
+Processing by LoginController#check as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"ugJ/LM2RbOR4ioNm2DUCjErxxnBHpBCV1v2OMdKyGkNnPfr6qjN0RpurdO4RwJFKTIyXI42cmWdrR480v8O5sw==", "/login/login"=>{"email"=>"aaa", "password"=>"[FILTERED]"}, "commit"=>"Login"}
+  [1m[36mUser Load (0.7ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."email" = $1 AND "users"."password" = $2 ORDER BY "users"."id" ASC LIMIT $3[0m  [["email", "aaa"], ["password", "aaa"], ["LIMIT", 1]]
+  ↳ app/controllers/login_controller.rb:39
+Redirected to http://localhost:3000/login/success
+Completed 302 Found in 4ms (ActiveRecord: 0.7ms)
+
+
+Started GET "/login/success" for 127.0.0.1 at 2018-11-05 18:42:47 +0100
+Processing by LoginController#success as HTML
+  Rendering login/success.html.erb within layouts/application
+  Rendered layouts/_headernotconnected.html.erb (0.3ms)
+  Rendered login/success.html.erb within layouts/application (2.8ms)
+Completed 200 OK in 38ms (Views: 32.3ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/" for 127.0.0.1 at 2018-11-05 18:42:50 +0100
+Processing by LoginController#home as HTML
+  [1m[36mUser Load (1.0ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/controllers/login_controller.rb:5
+  Rendering login/home.html.erb within layouts/application
+  Rendered layouts/_headerconnected.html.erb (0.6ms)
+  [1m[36mUser Load (0.6ms)[0m  [1m[34mSELECT "users".* FROM "users"[0m
+  ↳ app/views/login/home.html.erb:10
+  Rendered login/home.html.erb within layouts/application (7.2ms)
+Completed 200 OK in 40ms (Views: 33.5ms | ActiveRecord: 1.6ms)
+
+
+Started GET "/login/logout" for 127.0.0.1 at 2018-11-05 18:47:09 +0100
+Processing by LoginController#logout as HTML
+  Rendering login/logout.html.erb within layouts/application
+  Rendered layouts/_headerconnected.html.erb (0.5ms)
+  Rendered login/logout.html.erb within layouts/application (3.5ms)
+Completed 200 OK in 51ms (Views: 46.4ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/" for 127.0.0.1 at 2018-11-05 18:47:11 +0100
+Processing by LoginController#home as HTML
+  Rendering login/home.html.erb within layouts/application
+  Rendered layouts/_headernotconnected.html.erb (0.6ms)
+  Rendered login/home.html.erb within layouts/application (5.5ms)
+Completed 200 OK in 56ms (Views: 39.0ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/login/new" for 127.0.0.1 at 2018-11-05 18:47:13 +0100
+Processing by LoginController#new as HTML
+  Rendering login/new.html.erb within layouts/application
+  Rendered layouts/_headernotconnected.html.erb (0.2ms)
+  Rendered login/new.html.erb within layouts/application (5.0ms)
+Completed 200 OK in 55ms (Views: 32.1ms | ActiveRecord: 9.6ms)
+
+
+Started POST "/login/new" for 127.0.0.1 at 2018-11-05 18:47:19 +0100
+Processing by LoginController#confirm as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"2U593uh/HKjRN7ZZ9BDdh/VKLUj8yYN3LHI2cGdRFeJsukD+ZG8YWIFEkq5ZFU6fdsGj6J+lNnGlQD81cYNX9g==", "user"=>{"first_name"=>"aaa", "last_name"=>"aaa", "email"=>"aaa", "password"=>"[FILTERED]"}, "commit"=>"Create"}
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."email" = $1 LIMIT $2[0m  [["email", "aaa"], ["LIMIT", 1]]
+  ↳ app/controllers/login_controller.rb:26
+Redirected to http://localhost:3000/login/email
+Completed 302 Found in 6ms (ActiveRecord: 0.4ms)
+
+
+Started GET "/login/email" for 127.0.0.1 at 2018-11-05 18:47:19 +0100
+Processing by LoginController#email as HTML
+  Rendering login/email.html.erb within layouts/application
+  Rendered layouts/_headernotconnected.html.erb (0.3ms)
+  Rendered login/email.html.erb within layouts/application (2.2ms)
+Completed 200 OK in 48ms (Views: 44.2ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/login/new" for 127.0.0.1 at 2018-11-05 18:47:22 +0100
+Processing by LoginController#new as HTML
+  Rendering login/new.html.erb within layouts/application
+  Rendered layouts/_headernotconnected.html.erb (2.1ms)
+  Rendered login/new.html.erb within layouts/application (8.4ms)
+Completed 200 OK in 63ms (Views: 57.0ms | ActiveRecord: 0.0ms)
+
+
+Started POST "/login/new" for 127.0.0.1 at 2018-11-05 18:47:28 +0100
+Processing by LoginController#confirm as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"JOkwsqmapekc1OflXGUk+AXQKIgGki29lj+LArLRFkSRHQ2SJYqhGUynwxLxYLfghlumKGX+mLsfDYJHpANUUA==", "user"=>{"first_name"=>"bbb", "last_name"=>"bbb", "email"=>"bbb", "password"=>"[FILTERED]"}, "commit"=>"Create"}
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."email" = $1 LIMIT $2[0m  [["email", "bbb"], ["LIMIT", 1]]
+  ↳ app/controllers/login_controller.rb:26
+  [1m[35m (0.5ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/login_controller.rb:29
+  [1m[36mUser Exists (0.5ms)[0m  [1m[34mSELECT  1 AS one FROM "users" WHERE "users"."email" = $1 LIMIT $2[0m  [["email", "bbb"], ["LIMIT", 1]]
+  ↳ app/controllers/login_controller.rb:29
+  [1m[36mUser Create (0.5ms)[0m  [1m[32mINSERT INTO "users" ("first_name", "last_name", "email", "password", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6) RETURNING "id"[0m  [["first_name", "bbb"], ["last_name", "bbb"], ["email", "bbb"], ["password", "bbb"], ["created_at", "2018-11-05 17:47:28.326193"], ["updated_at", "2018-11-05 17:47:28.326193"]]
+  ↳ app/controllers/login_controller.rb:29
+  [1m[35m (6.0ms)[0m  [1m[35mCOMMIT[0m
+  ↳ app/controllers/login_controller.rb:29
+  Rendering login/confirm.html.erb within layouts/application
+  Rendered layouts/_headernotconnected.html.erb (0.4ms)
+  Rendered login/confirm.html.erb within layouts/application (2.2ms)
+Completed 200 OK in 53ms (Views: 32.9ms | ActiveRecord: 7.8ms)
+
+
+Started GET "/login/check" for 127.0.0.1 at 2018-11-05 18:47:31 +0100
+Processing by LoginController#login as HTML
+  Rendering login/login.html.erb within layouts/application
+  Rendered layouts/_headernotconnected.html.erb (0.7ms)
+  Rendered login/login.html.erb within layouts/application (6.3ms)
+Completed 200 OK in 48ms (Views: 36.6ms | ActiveRecord: 0.0ms)
+
+
+Started POST "/login/check" for 127.0.0.1 at 2018-11-05 18:47:35 +0100
+Processing by LoginController#check as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"OC/eUn09VXg8qJbLDNps/KhKfr1Mmfc7l2a7OTKmgWDlEFuEGp9N2t+JYUPFL/86rjcv7oahfskq3Lo8X9cikA==", "/login/login"=>{"email"=>"bbb", "password"=>"[FILTERED]"}, "commit"=>"Login"}
+  [1m[36mUser Load (0.5ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."email" = $1 AND "users"."password" = $2 ORDER BY "users"."id" ASC LIMIT $3[0m  [["email", "bbb"], ["password", "bbb"], ["LIMIT", 1]]
+  ↳ app/controllers/login_controller.rb:39
+Redirected to http://localhost:3000/login/success
+Completed 302 Found in 3ms (ActiveRecord: 0.5ms)
+
+
+Started GET "/login/success" for 127.0.0.1 at 2018-11-05 18:47:35 +0100
+Processing by LoginController#success as HTML
+  Rendering login/success.html.erb within layouts/application
+  Rendered layouts/_headernotconnected.html.erb (0.3ms)
+  Rendered login/success.html.erb within layouts/application (2.4ms)
+Completed 200 OK in 28ms (Views: 25.0ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/" for 127.0.0.1 at 2018-11-05 18:47:39 +0100
+Processing by LoginController#home as HTML
+  [1m[36mUser Load (4.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 3], ["LIMIT", 1]]
+  ↳ app/controllers/login_controller.rb:5
+  Rendering login/home.html.erb within layouts/application
+  Rendered layouts/_headerconnected.html.erb (0.6ms)
+  [1m[36mUser Load (0.5ms)[0m  [1m[34mSELECT "users".* FROM "users"[0m
+  ↳ app/views/login/home.html.erb:10
+  Rendered login/home.html.erb within layouts/application (6.6ms)
+Completed 200 OK in 52ms (Views: 32.6ms | ActiveRecord: 4.7ms)
+
+
