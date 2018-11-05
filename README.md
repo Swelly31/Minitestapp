@@ -1,8 +1,15 @@
 # MINITESTAPP
+Learning how to run tests on a RoR environment with MiniTest
+Instructions:
+Download or clone repo,
+Run a little bundle install
+Run rails db:create rails db:migrate and rails db:seed (if you feel like it)
+You can then run rails test to run the tests.
+If you want to browse the website, you can run rails server
+And then go to your browser's localhost:3000
+Made by the THP group in Toulouse
 
-Réalisée en pear-programming avec : 
     - Paul Trin Dinh : askprod
     - Paul RIVIERE : Blud7
     - Patrick Raza patpasha
-
 
